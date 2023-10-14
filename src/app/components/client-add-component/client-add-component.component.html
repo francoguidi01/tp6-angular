@@ -1,0 +1,17 @@
+
+    <h1>Add a client</h1>
+    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input  type="text" class="form-control" 
+            name="firstName" id="firstName" [(ngModel)]="firstName"
+            placeholder="firstName" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="lastName" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" 
+            [(ngModel)]="dni" name="dni" id="dni"
+            placeholder="dni" aria-label="dni" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="adress" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <button type="button" (click)="add_client()" class="btn btn-primary">Add</button>
+    </div>

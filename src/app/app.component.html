@@ -2,7 +2,10 @@
   <h1>Hola, cambio?</h1>
 </div>
 <div class="container-md">
-  <app-client-add-component [clientList]="clientList" [clienteExistente]="clientToEdit"></app-client-add-component>
-  <app-client-list-component [clientList]="clientList"></app-client-list-component>
+  <app-client-add-component [clientList]="clientList"></app-client-add-component>
+  <app-client-list-component [clientList]="clientList" (selected_client_to_edit_event)="edit_client($event)"></app-client-list-component>
 </div>
-<button (click)="hola(clientList)">Llamar al método</button>
+
+<div class="container-hg">
+  
+</div>

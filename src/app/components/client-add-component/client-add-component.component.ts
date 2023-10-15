@@ -18,44 +18,40 @@ export class ClientAddComponentComponent implements OnInit{
   lastName : string = "";
   dni : string = '';
   
-
-  @Input() clienteExistente: Client | null = null;
-
+  @Input() client_to_edit : Client = new Client();
+  @Input() modoEdicion: boolean = false;
   ngOnInit(): void {
-  
 }  
 
 
 
   add_client()
   {
-    // if (this.clienteExistente) {
-    //   console.log(this.clienteExistente);
-    //   // Modo de edición: Actualiza el cliente existente
-    //   this.clienteExistente.firstName = this.firstName;
-    //   this.clienteExistente.dni = this.dni;
+     if (this.modoEdicion) {
+       if(this.client_to_edit)
+       {
+         this.client_to_edit.firstName = this.firstName;
+         this.client_to_edit.dni = this.dni;
+         console.log('Cliente actualizado:', this.client_to_edit);
+       }
+    } else {
      
-  
-    //   console.log('Cliente actualizado:', this.clienteExistente);
-    // } else {
-      // Modo de creación: Agrega un nuevo cliente
       const newClient = new Client();
       newClient.clientId = uuidv4();
       newClient.firstName = this.firstName;
       newClient.dni = this.dni;
-      // Otros campos deben configurarse aquí
-  
+       
       this.clientList.push(newClient);
-      console.log('Nuevo cliente agregado:', newClient);
-   // }
-  
-    // Restablece los campos de entrada
+    }
     this.firstName = '';
     this.dni = '';
-    // Otros campos deben restablecerse aquí
+    
   }
 
+edit_client(client : Client)
+{
 
+}
 
 
 

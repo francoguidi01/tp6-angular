@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule, Output, EventEmitter } from '@angular/core';
 import { Client } from './models/client';
 
 @Component({
@@ -9,13 +9,18 @@ import { Client } from './models/client';
 
 export class AppComponent {
   title = 'tp_6_angular';
-  clientList : Array<Client> = [];
-  clientToEdit: Client = new Client;
-  hola(clientList: Array<Client>)
-  {
-
-    console.log('este es el arreglo aca ya pasado');
-    console.log(clientList);
+  clientList: Array<Client> = [];
+  @Input()
+  edit_client(clientData: Client) {
+    console.log('me vuelvo loco');
+    console.log(clientData);
+    this.send_client(clientData);
   }
+  @Output()
+  edit_client_event = new EventEmitter<Client>();
+  send_client(client: Client) {
+    this.edit_client_event.emit(client);
+  }
+
 
 }

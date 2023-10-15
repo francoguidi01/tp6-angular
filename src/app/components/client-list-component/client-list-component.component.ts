@@ -1,17 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Client } from 'src/app/models/client';
 @Component({
   selector: 'app-client-list-component',
   templateUrl: './client-list-component.component.html',
   styleUrls: ['./client-list-component.component.css']
 })
-export class ClientListComponentComponent implements OnInit{
+export class ClientListComponentComponent implements OnInit {
 
   @Input()
-  clientList : Array<Client> = [];
-  clientToEdit: Client | null = null;   
+  clientList: Array<Client> = [];
+  clientToEdit: Client | null = null;
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 
@@ -20,12 +20,13 @@ export class ClientListComponentComponent implements OnInit{
     if (index !== -1) {
       this.clientList.splice(index, 1); // Elimina el cliente en el índice encontrado
     }
-    console.log(this.clientList);
   }
 
-  editarCliente(clientToEdit: Client) {
-    this.clientToEdit = clientToEdit;
-    console.log('hola3'); // Asigna el cliente a la propiedad clienteEnEdicion
+  @Output()
+  selected_client_to_edit_event = new EventEmitter<Client>();
+
+  select_client_to_edit(client: Client) {
+    this.selected_client_to_edit_event.emit(client);
   }
 
 

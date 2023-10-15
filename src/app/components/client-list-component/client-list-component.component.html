@@ -21,7 +21,7 @@
       <td>{{ client.email }}</td>
       <td>{{ client.address }}</td>
       <td><button type="button" class="btn btn-success" (click)="delete_client(client.clientId)" >Delete</button></td>
-      <td><button type="button" class="btn btn-danger" (click)="editarCliente(client)" >Edit</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="select_client_to_edit(client)" >Edit</button></td>
     </tr>
   </tbody>
 </table>
